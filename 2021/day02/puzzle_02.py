@@ -10,17 +10,30 @@
 #
 # Q: What do you get if you multiply your final horizontal position by your final depth?
 
-input_data = []
-with open('input_02.txt', "r", encoding='utf-8') as f:
-    for line in f:
-        input_data.append(line)
-
 def main():
+    answer = 0
     aim = 0
     depth = 0
     forward = 0
-    
-    print(f'{input_data}')
+
+    with open('input_02.txt', "r", encoding='utf-8') as f:
+        for line in f:
+            if "up" in line:
+                line = line.split()
+                amount = int(line[1])
+                aim += amount
+            elif "down" in line:
+                line = line.split()
+                amount = int(line[1])
+                aim -= amount
+            elif "forward" in line:
+                line = line.split()
+                amount = int(line[1])
+                forward += amount
+                depth = depth+(aim*amount)
+
+    print(f'Aim:{aim}, Forward:{forward}, Depth:{depth}')
+    print(f'Final answer: {depth*forward}') # Answer is returned in negative, take the absolute value.
 
 if __name__ == '__main__':
     main()
