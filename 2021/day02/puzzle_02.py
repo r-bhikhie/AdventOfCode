@@ -11,7 +11,7 @@
 # Q: What do you get if you multiply your final horizontal position by your final depth?
 
 def main():
-    answer = 0
+    
     aim = 0
     depth = 0
     forward = 0
@@ -21,11 +21,11 @@ def main():
             if "up" in line:
                 line = line.split()
                 amount = int(line[1])
-                aim += amount
+                aim -= amount
             elif "down" in line:
                 line = line.split()
                 amount = int(line[1])
-                aim -= amount
+                aim += amount
             elif "forward" in line:
                 line = line.split()
                 amount = int(line[1])
@@ -33,7 +33,7 @@ def main():
                 depth = depth+(aim*amount)
 
     print(f'Aim:{aim}, Forward:{forward}, Depth:{depth}')
-    print(f'Final answer: {depth*forward}') # Answer is returned in negative, take the absolute value.
+    print(f'Final answer: {depth*forward}')
 
 if __name__ == '__main__':
     main()
