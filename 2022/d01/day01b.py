@@ -1,4 +1,4 @@
-#AOC2022 - D1a - Ravi Bhikhie
+#AOC2022 - D1b - Ravi Bhikhie
 
 data = ''
 sums = []
